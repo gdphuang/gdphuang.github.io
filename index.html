@@ -152,6 +152,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-从服务器上把文件复制到本地" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/">从服务器上把文件复制到本地</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="archive-article-date">
+  	<time datetime="2023-04-19T01:09:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-从服务器复制文件到本地："><a href="#1-从服务器复制文件到本地：" class="headerlink" title="1.从服务器复制文件到本地："></a>1.从服务器复制文件到本地：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@×××.×××.×××.×××:/data/test.txt /home/myfile/</span><br></pre></td></tr></table></figure>
+<p>root@×××.×××.×××.×××中的 root是目标服务器（有你需要拷贝文件的服务器）的用户名，×××.×××.×××.×××是IP地址，如192.168.1.100，后面紧跟的：不要忘记，/data/test.txt是目标服务器中你要拷贝文件的地址，接一个空格，后面的/home/myfile/是本地接收文件的地址。</p>
+<h3 id="2-从服务器复制文件夹到本地："><a href="#2-从服务器复制文件夹到本地：" class="headerlink" title="2.从服务器复制文件夹到本地："></a>2.从服务器复制文件夹到本地：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@×××.×××.×××.×××:/data/ /home/myfile/</span><br></pre></td></tr></table></figure>
+
+<p>只需在前面加-r即可，就可以拷贝整个文件夹。</p>
+<h3 id="3-从本地复制文件到服务器："><a href="#3-从本地复制文件到服务器：" class="headerlink" title="3.从本地复制文件到服务器："></a>3.从本地复制文件到服务器：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/myfile/test.txt root@192.168.1.100:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-从本地复制文件夹到服务器："><a href="#4-从本地复制文件夹到服务器：" class="headerlink" title="4.从本地复制文件夹到服务器："></a>4.从本地复制文件夹到服务器：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /home/myfile/ root@192.168.1.100:/data/</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-无题230418" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -186,68 +266,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/04/18/%E6%97%A0%E9%A2%98230418/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-无题-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/18/%E6%97%A0%E9%A2%98-1/">无题</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/18/%E6%97%A0%E9%A2%98-1/" class="archive-article-date">
-  	<time datetime="2023-04-18T05:00:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/18/%E6%97%A0%E9%A2%98-1/">展开全文 >></a>
         </p>
       
 
@@ -822,11 +840,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">

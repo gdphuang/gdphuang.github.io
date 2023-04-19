@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://gdphuang.github.io">
-  <title>咖啡 | Paul‘s blog</title>
+  <title>从服务器上把文件复制到本地 | Paul‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1$ 淡了终究是淡了，那怕没那么苦了！">
+  <meta name="description" content="1.从服务器复制文件到本地：1scp root@×××.×××.×××.×××:&#x2F;data&#x2F;test.txt &#x2F;home&#x2F;myfile&#x2F; root@×××.×××.×××.×××中的 root是目标服务器（有你需要拷贝文件的服务器）的用户名，×××.×××.×××.×××是IP地址，如192.168.1.100，后面紧跟的：不要忘记，&#x2F;data&#x2F;test.txt是目标服务器中你要拷贝文件的地址，接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="咖啡">
-<meta property="og:url" content="http://gdphuang.github.io/2023/03/22/%E5%92%96%E5%95%A1/index.html">
+<meta property="og:title" content="从服务器上把文件复制到本地">
+<meta property="og:url" content="http://gdphuang.github.io/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/index.html">
 <meta property="og:site_name" content="Paul‘s blog">
-<meta property="og:description" content="1$ 淡了终究是淡了，那怕没那么苦了！">
+<meta property="og:description" content="1.从服务器复制文件到本地：1scp root@×××.×××.×××.×××:&#x2F;data&#x2F;test.txt &#x2F;home&#x2F;myfile&#x2F; root@×××.×××.×××.×××中的 root是目标服务器（有你需要拷贝文件的服务器）的用户名，×××.×××.×××.×××是IP地址，如192.168.1.100，后面紧跟的：不要忘记，&#x2F;data&#x2F;test.txt是目标服务器中你要拷贝文件的地址，接">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-22T00:22:00.000Z">
-<meta property="article:modified_time" content="2023-03-22T00:30:08.333Z">
+<meta property="article:published_time" content="2023-04-19T01:09:34.000Z">
+<meta property="article:modified_time" content="2023-04-19T01:16:58.715Z">
 <meta property="article:author" content="Paul Huang">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Paul‘s blog" type="application/atom+xml">
@@ -155,27 +155,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-咖啡" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-从服务器上把文件复制到本地" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      咖啡
+      从服务器上把文件复制到本地
     </h1>
   
 
         
-        <a href="/2023/03/22/%E5%92%96%E5%95%A1/" class="archive-article-date">
-  	<time datetime="2023-03-22T00:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-22</time>
+        <a href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="archive-article-date">
+  	<time datetime="2023-04-19T01:09:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 淡了终究是淡了，那怕没那么苦了！</span><br></pre></td></tr></table></figure>
+        <h3 id="1-从服务器复制文件到本地："><a href="#1-从服务器复制文件到本地：" class="headerlink" title="1.从服务器复制文件到本地："></a>1.从服务器复制文件到本地：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@×××.×××.×××.×××:/data/test.txt /home/myfile/</span><br></pre></td></tr></table></figure>
+<p>root@×××.×××.×××.×××中的 root是目标服务器（有你需要拷贝文件的服务器）的用户名，×××.×××.×××.×××是IP地址，如192.168.1.100，后面紧跟的：不要忘记，/data/test.txt是目标服务器中你要拷贝文件的地址，接一个空格，后面的/home/myfile/是本地接收文件的地址。</p>
+<h3 id="2-从服务器复制文件夹到本地："><a href="#2-从服务器复制文件夹到本地：" class="headerlink" title="2.从服务器复制文件夹到本地："></a>2.从服务器复制文件夹到本地：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@×××.×××.×××.×××:/data/ /home/myfile/</span><br></pre></td></tr></table></figure>
+
+<p>只需在前面加-r即可，就可以拷贝整个文件夹。</p>
+<h3 id="3-从本地复制文件到服务器："><a href="#3-从本地复制文件到服务器：" class="headerlink" title="3.从本地复制文件到服务器："></a>3.从本地复制文件到服务器：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/myfile/test.txt root@192.168.1.100:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-从本地复制文件夹到服务器："><a href="#4-从本地复制文件夹到服务器：" class="headerlink" title="4.从本地复制文件夹到服务器："></a>4.从本地复制文件夹到服务器：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /home/myfile/ root@192.168.1.100:/data/</span><br></pre></td></tr></table></figure>
       
 
       
@@ -209,7 +216,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -265,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://gdphuang.github.io/2023/03/22/%E5%92%96%E5%95%A1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://gdphuang.github.io/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +286,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/03/23/%E6%97%A0%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          无题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/03/17/DataFrame%E4%B8%AD%E5%8D%83%E4%BD%8D%E7%AC%A6%E4%B8%BA%E9%80%97%E5%8F%B7%E7%9A%84%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DataFrame中千位符为逗号的数字字符串转换为浮点数</div>
+    <a href="/2023/04/18/%E6%97%A0%E9%A2%98230418/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">无题230418</div>
       <i class="icon-circle-right"></i>
     </a>
   
