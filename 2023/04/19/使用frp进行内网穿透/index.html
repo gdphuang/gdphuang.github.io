@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://gdphuang.github.io">
-  <title>Archives: 2023/4 | Paul‘s blog</title>
+  <title>使用frp进行内网穿透 | Paul‘s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Paul‘s blog">
-<meta property="og:url" content="http://gdphuang.github.io/archives/2023/04/index.html">
+  <meta name="description" content="frp概述frp 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。frp 采用 C&#x2F;S 模式，将服务端部署在具有公网 IP 机器上，客户端部署在内网或防火墙内的机器上，通过访问暴露在服务器上的端口，反向代理到处于内网的服务。 在此基础上，frp 支持 TCP, UDP, HTT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用frp进行内网穿透">
+<meta property="og:url" content="http://gdphuang.github.io/2023/04/19/%E4%BD%BF%E7%94%A8frp%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
 <meta property="og:site_name" content="Paul‘s blog">
+<meta property="og:description" content="frp概述frp 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。frp 采用 C&#x2F;S 模式，将服务端部署在具有公网 IP 机器上，客户端部署在内网或防火墙内的机器上，通过访问暴露在服务器上的端口，反向代理到处于内网的服务。 在此基础上，frp 支持 TCP, UDP, HTT">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-19T03:10:23.000Z">
+<meta property="article:modified_time" content="2023-04-19T03:40:38.229Z">
 <meta property="article:author" content="Paul Huang">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Paul‘s blog" type="application/atom+xml">
@@ -150,36 +155,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-使用frp进行内网穿透" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      使用frp进行内网穿透
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/19/%E4%BD%BF%E7%94%A8frp%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="archive-article-date">
+
+        
+        <a href="/2023/04/19/%E4%BD%BF%E7%94%A8frp%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="archive-article-date">
   	<time datetime="2023-04-19T03:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/19/%E4%BD%BF%E7%94%A8frp%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">使用frp进行内网穿透</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="frp概述"><a href="#frp概述" class="headerlink" title="frp概述"></a>frp概述</h2><p>frp 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。frp 采用 C/S 模式，将服务端部署在具有公网 IP 机器上，客户端部署在内网或防火墙内的机器上，通过访问暴露在服务器上的端口，反向代理到处于内网的服务。 在此基础上，frp 支持 TCP, UDP, HTTP, HTTPS 等多种协议，提供了加密、压缩，身份认证，代理限速，负载均衡等众多能力。</p>
+<p>frp<a target="_blank" rel="noopener" href="https://gofrp.org/">官网</a><br><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">GitHub</a></p>
+<h2 id="下载frp"><a href="#下载frp" class="headerlink" title="下载frp"></a>下载frp</h2><p>由于frp是go语言开发，因此可以直接下载可执行程序，没有任何依赖。一般通过<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">GitHub的releases</a>下载</p>
+<h2 id="安装服务器端（frps）"><a href="#安装服务器端（frps）" class="headerlink" title="安装服务器端（frps）"></a>安装服务器端（frps）</h2><h3 id="上传到服务器或直接从服务器上下载"><a href="#上传到服务器或直接从服务器上下载" class="headerlink" title="上传到服务器或直接从服务器上下载"></a>上传到服务器或直接从服务器上下载</h3><p>选择对应自己系统的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_freebsd_amd64.tar.gz</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+
+
+<h3 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h3><p>不然会包错，可以直接全部设置成777.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 grps</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件frps-ini"><a href="#修改配置文件frps-ini" class="headerlink" title="修改配置文件frps.ini"></a>修改配置文件frps.ini</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line"><span class="comment"># 这个默认端口是7000，就是客户端和服务端通信的，不是你转发的那个端口</span></span><br><span class="line"><span class="comment"># 如果这个要改了，客户端的7000也要改成和这里一样。</span></span><br><span class="line">bind_port = 6060</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个是frp的web管理控制台的用户名密码和登录端口</span></span><br><span class="line">dashboard_user = user_name</span><br><span class="line">dashboard_pwd = password</span><br><span class="line">dashboard_port = 6061</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个token之后在客户端会用到，相当于客户端登录服务器端，毕竟这个东西不能随便给人用，自己随便输入一串字符串就行</span></span><br><span class="line">token = HelloWorld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 心跳连接：必须得有，frp 0.43.0版本如果不加，60秒就会自动断开连接！</span></span><br><span class="line"><span class="comment"># 服务器就加这一条，客户机每台都要加。</span></span><br><span class="line">heartbeat_timeout = 30</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行frpsc"><a href="#运行frpsc" class="headerlink" title="运行frpsc"></a>运行frpsc</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+
+<p>出现【Start frps success】代表运行成功<br>此时访问 x.x.x.x:7500 并使用自己设置的用户名密码登录，即可看到仪表板界面，<br>如果不能看到，但是确实启动成功了，需要在云服务器里开放端口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许端口6061访问</span></span><br><span class="line">sudo ufw allow 6061</span><br><span class="line"><span class="comment"># 重载端口</span></span><br><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
+
+
+<p>至此，我们的服务端仅运行在前台，但是Ctrl+C停止或者关闭SSH窗口后，frps 均会停止运行，所以进行如下配置</p>
+<h3 id="配置systemctl进行开机启动"><a href="#配置systemctl进行开机启动" class="headerlink" title="配置systemctl进行开机启动"></a>配置systemctl进行开机启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /lib/systemd/system/frpc.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在frps.service里添加以下内容</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=frps service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line"><span class="comment"># 启动服务的命令（此处写你的frps的实际安装目录）</span></span><br><span class="line">ExecStart=/usr/local/wcb/frp_0.43.0_linux_amd64/frps -c /usr/local/wcb/frp_0.43.0_linux_amd64/frps.ini  </span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h3 id="systemctl常用命令"><a href="#systemctl常用命令" class="headerlink" title="systemctl常用命令"></a>systemctl常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动 </span></span><br><span class="line">sudo systemctl start frpc  </span><br><span class="line"><span class="comment">#关闭 </span></span><br><span class="line">sudo systemctl stop frpc </span><br><span class="line"><span class="comment">#重启 </span></span><br><span class="line">sudo systemctl restart frpc </span><br><span class="line"><span class="comment">#查看状态 </span></span><br><span class="line">sudo systemctl status frpc </span><br><span class="line">设置开机自动启动</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> frpc</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装客户端（frpc）"><a href="#安装客户端（frpc）" class="headerlink" title="安装客户端（frpc）"></a>安装客户端（frpc）</h2><h3 id="下载对应自己系统的版本并复制到文件夹"><a href="#下载对应自己系统的版本并复制到文件夹" class="headerlink" title="下载对应自己系统的版本并复制到文件夹"></a>下载对应自己系统的版本并复制到文件夹</h3><h3 id="修改配置文件frpc-ini"><a href="#修改配置文件frpc-ini" class="headerlink" title="修改配置文件frpc.ini"></a>修改配置文件frpc.ini</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line"><span class="comment"># 你frp服务器的公网ip地址</span></span><br><span class="line">server_addr = 0.0.0.0</span><br><span class="line">server_port = 6060 </span><br><span class="line"><span class="comment"># token与frps.ini 相同</span></span><br><span class="line">token = HelloWorld</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里取名随意,一般有意义就行</span></span><br><span class="line">[ssh]</span><br><span class="line"><span class="comment"># 穿透协议类型，可选：tcp，udp，http，https，stcp，xtcp，这个设置之前必须自行搞清楚应该是什么</span></span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line"><span class="comment"># 你当前内网服务器的网卡IP地址，不要用127.0.0.1</span></span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"><span class="comment"># 你要转发的服务端口</span></span><br><span class="line">local_port = 22</span><br><span class="line"><span class="comment"># 你要映射到公网上的那个端口</span></span><br><span class="line">remote_port = 6002</span><br><span class="line"></span><br><span class="line">[rdp]</span><br><span class="line"><span class="comment"># 穿透协议类型，可选：tcp，udp，http，https，stcp，xtcp，这个设置之前必须自行搞清楚应该是什么</span></span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line"><span class="comment"># 你当前内网服务器的网卡IP地址，不要用127.0.0.1</span></span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"><span class="comment"># 你要转发的服务端口</span></span><br><span class="line">local_port = 3389</span><br><span class="line"><span class="comment"># 你要映射到公网上的那个端口</span></span><br><span class="line">remote_port = 7002</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务器与客户机之间的心跳连接：如果没有，每隔60秒就会自动断开连接！！！</span></span><br><span class="line">heartbeat_timeout = 30</span><br></pre></td></tr></table></figure>
+<h3 id="运行frpc"><a href="#运行frpc" class="headerlink" title="运行frpc"></a>运行frpc</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frpc.exe -c frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>这个时候打开fpr服务器端界面就可以确认是否成功了</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,111 +243,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://gdphuang.github.io/2023/04/19/%E4%BD%BF%E7%94%A8frp%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="archive-article-date">
-  	<time datetime="2023-04-19T01:09:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从服务器上把文件复制到本地</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/19/%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%8A%8A%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0/">从服务器上把文件复制到本地</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/18/%E6%97%A0%E9%A2%98230418/" class="archive-article-date">
-  	<time datetime="2023-04-18T05:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/18/%E6%97%A0%E9%A2%98230418/">无题230418</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/12/Eudic%E8%B5%8B%E6%9D%83/" class="archive-article-date">
-  	<time datetime="2023-04-12T06:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/12/Eudic%E8%B5%8B%E6%9D%83/">Eudic赋权</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -318,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
