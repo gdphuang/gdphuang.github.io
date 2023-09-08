@@ -152,6 +152,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scp命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/08/scp%E5%91%BD%E4%BB%A4/">scp命令</a>
+    </h1>
+  
+
+        
+        <a href="/2023/09/08/scp%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2023-09-08T00:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>scp 命令是用于通过 SSH 协议安全地将文件复制到远程系统和从远程系统复制文件到本地的命令。使用 SSH 意味着它享有与 SSH 相同级别的数据加密，因此被认为是跨两个远程主机传输文件的安全方式。</p>
+<p>Linux SCP 命令是一种在两个远程节点之间传输文件的便捷且安全的方式，而无需担心攻击者窥探你的数据。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight bash"><figcaption><span>shell</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [option] /path/to/source/file user@server-ip:/path/to/destination/directory</span><br></pre></td></tr></table></figure>
+<h1 id="path-to-source-file-–-这是打算复制到远程主机的源文件。"><a href="#path-to-source-file-–-这是打算复制到远程主机的源文件。" class="headerlink" title="/path/to/source/file – 这是打算复制到远程主机的源文件。"></a>/path/to/source/file – 这是打算复制到远程主机的源文件。</h1><h1 id="user-server-IP-–-这是远程系统的用户名和-IP-地址。请注意-IP-地址后面加冒号。"><a href="#user-server-IP-–-这是远程系统的用户名和-IP-地址。请注意-IP-地址后面加冒号。" class="headerlink" title="user@server-IP: – 这是远程系统的用户名和 IP 地址。请注意 IP 地址后面加冒号。"></a>user@server-IP: – 这是远程系统的用户名和 IP 地址。请注意 IP 地址后面加冒号。</h1><h1 id="path-to-destination-directory-–-这是文件将复制到的远程系统上的目标目录。"><a href="#path-to-destination-directory-–-这是文件将复制到的远程系统上的目标目录。" class="headerlink" title="/path/to/destination/directory – 这是文件将复制到的远程系统上的目标目录。"></a>/path/to/destination/directory – 这是文件将复制到的远程系统上的目标目录。</h1><p>以下是scp命令常用的几个选项：</p>
+<blockquote>
+<p>** -C - 这会在复制过程中压缩文件或目录。<br>** -P - 如果默认 SSH 端口不是 22，则使用此选项指定 SSH 端口。<br>** -r - 此选项递归复制目录及其内容。<br>** -p - 保留文件的访问和修改时间。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/08/scp%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-在shell脚本中激活conda虚拟环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -789,84 +858,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/03/22/%E5%92%96%E5%95%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DataFrame中千位符为逗号的数字字符串转换为浮点数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/17/DataFrame%E4%B8%AD%E5%8D%83%E4%BD%8D%E7%AC%A6%E4%B8%BA%E9%80%97%E5%8F%B7%E7%9A%84%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0/">DataFrame中千位符为逗号的数字字符串转换为浮点数</a>
-    </h1>
-  
-
-        
-        <a href="/2023/03/17/DataFrame%E4%B8%AD%E5%8D%83%E4%BD%8D%E7%AC%A6%E4%B8%BA%E9%80%97%E5%8F%B7%E7%9A%84%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2023-03-17T03:48:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="从-excel中读取"><a href="#从-excel中读取" class="headerlink" title="从 excel中读取"></a>从 excel中读取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">df</span> = pandas.read_excel(<span class="string">&#x27;xxx.xlsx&#x27;</span>, thousands=<span class="string">&#x27;,&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ In [ 9]: import locale</span><br><span class="line">$ </span><br><span class="line">$ In [10]: from locale import atof</span><br><span class="line">$ </span><br><span class="line">$ In [11]: locale.setlocale(locale.LC_NUMERIC, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">$ Out[11]: <span class="string">&#x27;en_GB.UTF-8&#x27;</span></span><br><span class="line">$ </span><br><span class="line">$ In [12]: df.applymap(atof)</span><br><span class="line">$ Out[12]:</span><br><span class="line">$       0        1</span><br><span class="line">$ 0  1200  4200.00</span><br><span class="line">$ 1  7000    -0.03</span><br><span class="line">$ 2     5     0.00</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">备忘</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/03/17/DataFrame%E4%B8%AD%E5%8D%83%E4%BD%8D%E7%AC%A6%E4%B8%BA%E9%80%97%E5%8F%B7%E7%9A%84%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%B5%AE%E7%82%B9%E6%95%B0/">展开全文 >></a>
         </p>
       
 
